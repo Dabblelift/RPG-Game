@@ -1,6 +1,7 @@
 ﻿using RPG_Game.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,9 @@ namespace RPG_Game.Models
 {
     public abstract class Character
     {
+        [Key]
+        public string Id { get; set; }
+        public DateTime CreatedOn { get; set; }
         public Race Race { get; set; }
         public int Strength { get; set; }
         public int Agility { get; set; }
@@ -22,7 +26,8 @@ namespace RPG_Game.Models
 
         public Character()
         {
-
+            this.Id = Guid.NewGuid().ToString();
+            this.CreatedOn = DateTime.Now;
         }
         public void Setup() 
         {

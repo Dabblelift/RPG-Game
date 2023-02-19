@@ -8,7 +8,7 @@ namespace RPG_Game.Models
 {
     public class Warrior : Character
     {
-        public Warrior()
+        public Warrior() : base()
         {
             this.Race = Enums.Race.Warrior;
             this.Strength = 3;
