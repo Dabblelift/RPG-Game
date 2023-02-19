@@ -8,9 +8,9 @@ namespace RPG_Game
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            var gameService = new GamesService();
+            var db = new ApplicationDbContext();
+            var gameService = new GamesService(db);
             var game = new Game(gameService);
-
             game.Run();
         }
     }

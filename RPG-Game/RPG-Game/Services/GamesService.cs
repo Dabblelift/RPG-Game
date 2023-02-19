@@ -9,6 +9,12 @@ namespace RPG_Game.Services
 {
     public class GamesService : IGamesService
     {
+        public ApplicationDbContext db { get; }
+
+        public GamesService(ApplicationDbContext db)
+        {
+            this.db = db;
+        }
 
         public void PrintWelcomeMessage()
         {
@@ -183,9 +189,11 @@ namespace RPG_Game.Services
                     character.Intelligence += pointsInput;
                 }
 
-                character.Setup();
-
             }
+
+            character.Setup();
+            db.Characters.Add(character);
+            db.SaveChanges();
 
         }
 
