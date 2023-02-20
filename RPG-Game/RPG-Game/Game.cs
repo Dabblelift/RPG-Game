@@ -24,7 +24,9 @@ namespace RPG_Game
 
             var character = this.gamesService.SelectCharacter();
 
-            this.gamesService.BuffCharacter(character);
+            character = this.gamesService.BuffCharacter(character);
+
+            this.gamesService.StartGame(character);
 
         }
     }

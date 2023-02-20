@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,10 @@ namespace RPG_Game.Models
         public int Damage { get; set; }
         public char FieldSymbol { get; set; }
 
+        [NotMapped]
+        public int CoordinateX { get; set; }
+        [NotMapped]
+        public int CoordinateY { get; set; }
 
         public Character()
         {

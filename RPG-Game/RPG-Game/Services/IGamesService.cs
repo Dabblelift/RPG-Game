@@ -13,7 +13,9 @@ namespace RPG_Game.Services
 
         public Character SelectCharacter();
 
-        public void BuffCharacter(Character character);
+        public Character BuffCharacter(Character character);
+
+        public void StartGame(Character character);
 
     }
 }
