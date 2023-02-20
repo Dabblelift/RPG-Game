@@ -398,10 +398,16 @@ namespace RPG_Game.Services
 
 
                     } while (!movementInputIsValid);
+
+                    monsters.Add(SpawnMonster(field));
+
                 }
 
                 foreach (var monster in monsters)
                 {
+                    var monsterCoordinates = new int[] { monster.CoordinateY, monster.CoordinateX };
+
+
                     if (Math.Abs(monster.CoordinateX - character.CoordinateX) <= 1 &&
                         Math.Abs(monster.CoordinateY - character.CoordinateY) <= 1)
                     {
@@ -436,6 +442,12 @@ namespace RPG_Game.Services
                         {
                             monster.CoordinateY++;
 
+                        }
+
+                        if (field[monster.CoordinateY, monster.CoordinateX] != '▒')
+                        {
+                            monster.CoordinateY = monsterCoordinates[0];
+                            monster.CoordinateX = monsterCoordinates[1];
                         }
 
                         field[monster.CoordinateY, monster.CoordinateX] = monster.FieldSymbol;
